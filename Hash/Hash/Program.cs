@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("************** Welcome To Hashing ****************");
 using Hash;
-Console.Write("Select Number:\n1)ToBeOrNotToBe\n2)Paragraph");
+Console.Write("Select Number:\n1)ToBeOrNotToBe\n2)Paragraph,Remove");
 int option = Convert.ToInt32(Console.ReadLine());
 
 switch (option)
@@ -20,15 +20,17 @@ switch (option)
         Console.WriteLine("2nd index value : {0} ", hash2);
          break;
     case 2:
-        string demoPara = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
-        string[] para = demoPara.Split(" ");
+        string samplePara = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+        string[] para = samplePara.Split(" ");
         MyMapNode<int, string> hash0 = new MyMapNode<int, string>(para.Length);
-        int i=0;
+        int i = 0;
         foreach (string word in para)
         {
-            hash0.Add(i, word);  //adding each word in para to the list
+            hash0.Add(i, word);  //adding each word in the para to list
             i++;
         }
+
+        hash0.Remove(17);
         for (i = 0; i < para.Length; i++) //For each word in para displaying index position
         {
             string v = hash0.Get(i);
